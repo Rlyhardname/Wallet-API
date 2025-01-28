@@ -1,0 +1,209 @@
+{
+	"info": {
+		"_postman_id": "81c41434-670b-40fe-9f12-e61432f289ca",
+		"name": "Task",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36354235"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\" : \"ggg@ggg.com\",\r\n    \"password\" : \"SomePass2!\",\r\n    \"egn\" : \"9512136076\",\r\n    \"firstName\" : \"ivan\",\r\n    \"lastName\" : \"dimitrov\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/users/new?email=ggg@ggg.com&password=Somepass2!&egn=9512136076&firstName=ivan&lastName=dimitrov",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"new"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "ggg@ggg.com"
+						},
+						{
+							"key": "password",
+							"value": "Somepass2!"
+						},
+						{
+							"key": "egn",
+							"value": "9512136076"
+						},
+						{
+							"key": "firstName",
+							"value": "ivan"
+						},
+						{
+							"key": "lastName",
+							"value": "dimitrov"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddWalletOfCurrencyType",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"ggg@ggg.com\",\r\n    \"password\" : \"SomePass2!\"\r\n}   ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/wallets/new/usd",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"wallets",
+						"new",
+						"usd"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetWalletOfCurrencyType",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"ggg@ggg.com\",\r\n    \"password\" : \"SomePass2!\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/wallets/USD",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"wallets",
+						"USD"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllWallets",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"ggg@ggg.com\",\r\n    \"password\" : \"SomePass2!\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/wallets/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"wallets",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deposit",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"ggg@ggg.com\",\r\n    \"password\" : \"SomePass2!\",\r\n    \"firstName\" : \"Ivan\",\r\n    \"lastName\" : \"Dimitrov\",\r\n    \"cardNumber\" : \"845231959121306233\",\r\n    \"csc\" : \"123\",\r\n    \"expiryDate\" : \"10/12/2030\",\r\n    \"currency\":\"USD\",\r\n    \"amount\": 44.52\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/wallets/deposit/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"wallets",
+						"deposit",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Withdraw",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"ggg@ggg.com\",\r\n    \"password\" : \"SomePass2!\",\r\n    \"firstName\" : \"Ivan\",\r\n    \"lastName\" : \"Dimitrov\",\r\n    \"cardNumber\" : \"845231959121306233\",\r\n    \"expiryDate\" : \"10/12/2030\",\r\n    \"currency\":\"USD\",\r\n    \"amount\": 44.52\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/wallets/withdraw/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"wallets",
+						"withdraw",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
