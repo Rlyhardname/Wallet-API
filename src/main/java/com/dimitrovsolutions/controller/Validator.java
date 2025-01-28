@@ -7,6 +7,9 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.util.regex.PatternSyntaxException;
 
 /**
  * Global validator for everything atm.
@@ -14,23 +17,46 @@ import java.util.Objects;
 @Component
 public class Validator {
 
-    public void validateCredentials(String username, String password) {
-        if (Objects.isNull(username) || Objects.isNull(password)) {
+    public void validateCredentials(String email, String password) {
+        if (Objects.isNull(email) || Objects.isNull(password)) {
             throw new IllegalArgumentException("Email and password are required,400");
         }
 
-        if (username.length() < 3) {
-            throw new IllegalArgumentException("Email must be at least 3 characters,400");
-        }
-
-        if (password.length() < 8 || password.length() > 25) {
-            throw new IllegalArgumentException("Password must be between 8 and 30 characters,400");
-        }
+        validateEmail(email);
 
         validatePassword(password);
     }
 
+    private void validateEmail(String email) {
+        if (isEmailValid(email)) {
+            return;
+        }
+
+        throw new IllegalArgumentException("Invalid email");
+    }
+
+    /**
+     * Accepts  numbers and characters [a-zA-Z0-9] followed by @ then characters [a-zA-Z]
+     * followed by dot and lastly characters [A-Za-z]
+     */
+    private boolean isEmailValid(String email) {
+        try {
+            Pattern emailRexEx = Pattern.compile("[a-zA-Z0-9]+@[A-Za-z]+.[A-Za-z]+");
+            Matcher matcher = emailRexEx.matcher(email);
+
+            return matcher.matches();
+        } catch (PatternSyntaxException e) {
+            throw new PatternSyntaxException("Internal system error with emails validating emails, please contact tech support to fix it", "system", 0);
+        } catch (NullPointerException e) {
+            throw new IllegalArgumentException("Invalid email");
+        }
+    }
+
     private void validatePassword(String password) {
+        if (password.length() < 8 || password.length() > 25) {
+            throw new IllegalArgumentException("Password must be between 8 and 30 characters,400");
+        }
+
         int number = 0;
         int lowerCase = 0;
         int upperCase = 0;
