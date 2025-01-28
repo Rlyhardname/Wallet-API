@@ -1,3 +1,5 @@
+<h1 align="center" >Wallet-API</h1>
+
 ### Technologies  
 1. Java SE (Logic/Validations/Exception handling)
 2. PostgresDB (Database manager)
@@ -10,13 +12,13 @@
 
 ### My approach
 
-I tried to create everything from scratch, as low level as possible, starting from db schemas, business logic, validations etc.. At some point I became very time constaint, and added spring for server endpoints, and logback for logging since it take way to long
-to figure out how to implement endpoints in native java code. 
+I tried to create everything from scratch, as low level as possible, starting from db schemas, business logic, validations etc.. At some point I became very time constaint and added spring for server endpoints, as well as logback for logging. I did this since it would take way to long to figure out how to implement endpoints in native java code. 
 
 ### Requirements: 
 
 -Maven  
 -Java 17 or newer  
+-Postgres database  
 -Postman(for using the collections to manually test) 
 
 #### Edit POM.XML properties if needed
@@ -34,13 +36,13 @@ to figure out how to implement endpoints in native java code.
 4. mvn install
 5. cd target ( switch to target folder ) 
 6. cd . > run.bat ( create empty batch file ) 
-7. notepad run.bat ( opens empty batch in graphical interface)
-8. Copy paste these two lines in bat file and save
+7. notepad run.bat ( opens empty batch in graphical interface )
+8. In opened notepad, copy and paste these two lines and save
 
 java -jar Wallet-API-1.0-SNAPSHOT-jar-with-dependencies.jar  
 pause
 
-8. Start run.bat with double click or ctrl+enter when selected.
+8. Start run.bat with double click or ctrl+enter when selected. ( This step will start the server, and will create a local postgres database from https://github.com/Rlyhardname/Wallet-API/blob/master/src/main/resources/db.properties ) . 
 
 9. Use provided postman collections to manually test in root of project or from here
 https://github.com/Rlyhardname/Wallet-API/tree/master/postmanCollection
